@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Booking</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #03203C;
+      color: white;
+      padding: 2rem;
+    }
+
+    .flight-search-container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .flight-search-container h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .flight-search-container h1 span {
+      font-weight: 400;
+    }
+
+    .trip-type {
+      margin: 1rem 0;
+    }
+
+    .trip-button {
+      background-color: #092c4c;
+      color: white;
+      padding: 0.6rem 1rem;
+      border: 1px solid #174f72;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .trip-button i {
+      margin-left: 0.5rem;
+    }
+
+    .search-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1px;
+      background-color: white;
+      border-radius: 16px;
+      overflow: hidden;
+      align-items: center;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      background-color: white;
+      color: #333;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .field label {
+      font-weight: bold;
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .field input {
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      padding: 0.3rem 0;
+    }
+
+    .swap-icon {
+      font-size: 1.5rem;
+      color: #03203C;
+      background-color: white;
+      padding: 0 0.5rem;
+    }
+
+    .search-button {
+      background-color: #0070f3;
+      color: white;
+      border: none;
+      padding: 1.1rem 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 0 16px 16px 0;
+      transition: background 0.3s ease;
+    }
+
+    .search-button:hover {
+      background-color: #0059c1;
+    }
+
+    @media (max-width: 768px) {
+      .search-box {
+        flex-direction: column;
+        border-radius: 16px;
+      }
+
+      .search-button {
+        border-radius: 0 0 16px 16px;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="flight-search-container">
+    <h1>Millions of cheap flights. <span>One simple search.</span></h1>
+
+    <div class="trip-type">
+      <button class="trip-button">Return <i class="fa fa-chevron-down"></i></button>
+    </div>
+
+    <form class="search-box" onsubmit="return validateForm(event)">
+      <div class="field from">
+        <label>From</label>
+        <input type="text" placeholder="United Kingdom (UK)" id="from" required />
+      </div>
+
+      <div class="swap-icon"><i class="fa fa-right-left"></i></div>
+
+      <div class="field to">
+        <label>To</label>
+        <input type="text" placeholder="Country, city or airport" id="to" required />
+      </div>
+
+      <div class="field date">
+        <label>Depart</label>
+        <input type="date" id="depart" required />
+      </div>
+
+      <div class="field date">
+        <label>Return</label>
+        <input type="date" id="return" />
+      </div>
+
+      <div class="field travelers">
+        <label>Travellers and cabin class</label>
+        <input type="text" placeholder="1 Adult, Economy" id="travelers" />
+      </div>
+
+      <button type="submit" class="search-button">Search</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm(event) {
+      event.preventDefault();
+      const from = document.getElementById("from").value.trim();
+      const to = document.getElementById("to").value.trim();
+      const depart = document.getElementById("depart").value;
+
+      if (!from || !to || !depart) {
+        alert("Please fill out all required fields.");
+        return false;
+      }
+
+      alert("Searching for flights from " + from + " to " + to);
+      return true;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+service: flight-teller
+frameworkVersion: '2'
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: us-east-1
+
+functions:
+api:
+  handler: handler.api
+  events:
+    - http:
+        method: get
+        path: /flights

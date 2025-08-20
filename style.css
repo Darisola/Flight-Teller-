@@ -1,0 +1,922 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap');
+
+:root{
+     --blue: #56ceec;
+    --text-color-1: #444;
+    --text-color-2: #666;
+    --bg-color-1: #fff;
+    --bg-color-2: #eee;
+    --box-shadow: 0 .5rem 1.5rem rgb(14, 13, 0);
+}
+
+*{
+    font-family:'Poppins', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+} 
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+html ::-webkit-scrollbar{
+    width:.8rem;
+
+}    
+
+html::-webkit-scrollbar-track{
+background:transparent;
+
+}
+
+
+
+html::-webkit-scrollbar-thumb{
+background:var(--blue);
+    border-radius: 1rem;
+}
+
+body{
+    background: var(--bg-color-2);
+}
+
+
+body.active{
+ 
+    --text-color-1: #fff;
+    --text-color-2: #eee;
+    --bg-color-1: #333;
+    --bg-color-2: #222;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,4); 
+}
+
+section{
+    padding: 2rem 7%;
+}
+
+.header{
+    position: fixed;
+    top:0; left:0; right: 0;
+    background:var(--bg-color-1);
+    box-shadow:var(--box-shadow);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.header .logo{
+    font-size: 2.5rem;
+    color: var(--blue);
+    font-weight: 700;
+    color: var(--text-color-1);
+}
+
+
+.header .logo > i{
+    color: var(--blue);
+}
+
+
+.header .search-form{
+    background: var(--bg-color-2);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    height: 4.5rem;
+    width: 50rem;
+}
+
+
+.header .search-form input{
+    height: 100%;
+    width: 100%;
+    background: none;
+    text-transform: none;
+    font-size: 1.5rem;
+    color: var(--text-color-1);
+    padding: 1rem;
+}
+
+
+.header .search-form .label{
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    color: var(--text-color-1);
+    cursor: pointer;
+}
+
+
+.header .search-form label:hover{
+    color: var(--blue);
+}
+
+
+.header .search-form input:focus{
+    border: 1px solid var(--blue);
+    box-shadow: 0 0 0.5rem rgba(35, 31, 247, 0.5);
+}
+
+
+.header .icons>div{
+    height: 3.5rem;
+    width: 3.5rem;
+    line-height: 3.5rem;
+    border-radius: 1rem;
+    margin-left: 5rem;
+    background: var(--bg-color-2);
+    color: var(--text-color-1);
+    cursor: pointer;
+    text-align: center;
+}
+.header .icons>div:hover{
+     color: rgba(158, 140, 1, 0.957);
+    background-color: rgba(156, 2, 2, 0.635);
+}
+
+
+
+
+#search-btn{
+    display: none;
+}
+
+
+.header .navbar{
+    position: absolute;
+    top: 115%;right: 7%;
+    background: var(--bg-color-1);
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    width: 25rem;
+    transform: scale(0);
+    transform-origin: top right;
+}
+
+.header .navbar.active{
+    transform: scale(1);
+   
+}
+
+.header .navbar a{
+    display: block;
+    margin: 1rem ;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color:black;
+    border-radius:1rem ;
+}
+
+
+
+.header .navbar a:hover{
+     color: rgba(158, 140, 1, 0.957);
+    background-color: rgba(156, 2, 2, 0.635);
+    padding-left: 2rem;
+}
+
+
+.header .login-form{
+    position: absolute;
+    top: 115%;right: 7%;
+    background: var(--bg-color-1);
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    width: 45rem;
+    padding: 2rem;
+    height: 35rem;
+     transform: scale(0);
+    transform-origin: top right;
+}
+
+.header .login-form.active{
+    transform: scale(1);
+}
+
+
+
+.header .login-form .inputbox span{
+    font-size: 1.7rem;
+    color: var(--text-color-2);
+    width: 25rem;
+}
+
+
+.header .login-form .inputbox input{
+   
+    font-size: 1.5rem;
+    color: var(--text-color-2);
+    border-radius:  1rem;
+    padding: 1rem;
+    background: var(--bg-color-2);
+    width: 100%;
+    text-transform: none;
+    margin: 10px 0;
+    width: 25rem;
+    display: block;
+
+}
+
+
+.header .login-form .inputbox input:hover{
+      color: rgba(158, 140, 1, 0.957);
+    background-color: rgba(156, 2, 2, 0.635);
+    padding-left: 2rem;
+    
+}
+
+.header .login-form .inputbox input:focus{
+     color: rgba(158, 140, 1, 0.957);
+    background-color: rgba(156, 2, 2, 0.635);
+    padding-left: 2rem;
+    
+}
+
+
+.header .login-form .remember{
+    /* display: flex; */
+    align-items: center;
+   gap: 5rem 0;
+   padding:1rem 0;
+   
+}
+
+.header .login-form .remember label{
+ color: var(--text-color-2);
+ font-size: 1.5rem;
+ cursor: pointer;
+ 
+}
+
+.header .sign-form{
+    position: absolute;
+    top: 115%;right: 7%;
+    background: var(--bg-color-1);
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    width: 45rem;
+    padding: 2rem;
+    height: 35rem;
+     transform: scale(0);
+    transform-origin: top right;
+}
+
+.header .sign-form.active{
+    transform: scale(1);
+}
+
+
+
+.header .sign-form .inputbox span{
+    font-size: 1.7rem;
+    color: var(--text-color-2);
+    width: 25rem;
+}
+
+
+.header .sign-form .inputbox input{
+   
+    font-size: 1.5rem;
+    color: var(--text-color-2);
+    border-radius:  1rem;
+    padding: 1rem;
+    background: var(--bg-color-2);
+    width: 100%;
+    text-transform: none;
+    margin: 10px 0;
+    width: 25rem;
+    display: block;
+
+}
+
+
+.header .sign-form .inputbox input:hover{
+      color: rgba(158, 140, 1, 0.957);
+    background-color: rgba(156, 2, 2, 0.635);
+    padding-left: 2rem;
+    
+}
+
+.header .sign-form .inputbox input:focus{
+     color: rgba(158, 140, 1, 0.957);
+    background-color: rgba(156, 2, 2, 0.635);
+    padding-left: 2rem;
+    
+}
+
+
+.header .sign-form .remember{
+    /* display: flex; */
+    align-items: center;
+   gap: 5rem 0;
+   padding:1rem 0;
+   
+}
+
+.header .sign-form .remember label{
+ color: var(--text-color-2);
+ font-size: 1.5rem;
+ cursor: pointer;
+ 
+}
+
+
+
+
+
+
+
+ input.btn{
+    display: block;
+}
+
+
+.heading{
+    text-align: center;
+    padding: 2rem ;
+    color: var(--text-color-1);
+    font-size: 3rem;
+}
+
+.heading Span{
+    position: relative;
+    z-index: 0;
+}
+
+ .packages{
+    width: 100%;
+    /* display: grid;
+    display: block; */
+}
+
+
+
+
+.heading Span::before{
+    content: '';
+    position: absolute;
+    bottom: 1rem;left: 0;
+   z-index: inherit;
+   background: var(--blue);
+   height: 100%;
+    width: 100%;
+    clip-path: polygon(0 90%, 100% 83%, 100% 100%, 0% 100%);
+}
+
+.btn{
+    margin-top:1rem;
+    display: inline-block;
+    padding: 1rem 1rem;
+    font-size: 1.7rem;
+    color: var(--text-color-1);
+    background: rgb(0, 183, 255);
+    border-radius: 1rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+
+}
+
+.btn:hover{
+    color: rgb(129, 1, 1);
+    padding-left: 2rem;
+}
+
+
+.home{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 7rem ;
+}
+
+.home .image{
+    flex: 1 1 45rem;
+    }
+
+    .home .image img{
+    width: 100%;
+    }
+
+
+.home .content{
+    flex: 1 1 45rem;
+    }
+
+    
+.home .content h3{
+    color: var(--text-color-1);
+    font-size: 4rem;
+
+ }
+
+
+ .home .content p{
+    color: var(--text-color-2);
+    font-size: 1.7rem;
+    line-height: 1.7;
+    padding: 1rem 0;
+    
+ }
+
+
+
+ .form-container form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: space-between;
+    padding: 2rem;
+    background: var(--bg-color-1);
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem;
+   font-weight: bold;
+   background-color: var(--blue);
+
+
+}
+
+.btn:hover{
+    background: rgb(250, 225, 0);
+    color: rgba(156, 4, 183, 0.644);
+    padding-left: 2rem;
+}
+
+
+
+
+.form-container .inputbox{
+    max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-direction: row;
+      padding: 2rem;
+      background-color:var(--blue);
+      color: #333;
+      flex: 1;
+      min-width: 200px;
+      font-weight: bold;
+    margin-right: 10px;
+
+}
+
+.form-container  form .inputbox span{
+    font-size: 1.7rem;
+    color: var(--text-color-2);
+    width: 100%;
+    text-transform: none;
+     font-weight: bold;
+    display: flex;
+      flex-direction: column;
+    gap: 12px;
+
+}
+
+.sign{
+    color: var(--blue);
+    font-size: 1.5rem;
+   
+}
+
+.signup{
+    color: var(--blue);
+    
+}
+
+.form-container  form .inputbox input{
+    color: black;
+    display: block;
+    margin: 1rem 0;
+    display: flex;
+      flex-wrap: wrap;
+      gap: 1px;
+      background-color: white;
+      border-radius: 16px;
+      overflow: hidden;
+      align-items: center;
+      font-weight: bold;
+      
+
+    
+}
+
+
+.form-container .inputbox input:hover{
+     color: rgba(158, 140, 1, 0.957);
+    background-color: rgba(156, 2, 2, 0.635);
+    padding-left: 2rem;
+    
+}
+
+.form-container form .btn{
+     max-width: 1200px;
+      margin: auto;
+        background: var(--blue);
+      color: white;
+      padding: 0.6rem 1rem;
+      border: 1px solid #174f72;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+}
+.form-container form .btn{
+    background-color: #0070f3;
+      color: white;
+      border: none;
+      padding: 1.1rem 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 0 16px 16px 0;
+      transition: background 0.3s ease;
+     
+}
+
+.form-container form .btn:hover{
+    background: rgb(250, 225, 0);
+    color: rgba(156, 4, 183, 0.644);
+    padding-left: 2rem;
+}
+
+ 
+
+
+
+
+.packages .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 2fr));
+    gap: 5rem;
+}
+
+.packages .box-container .box{
+    background: var(--bg-color-1);
+    box-shadow: var(--box-shadow);
+}
+
+
+
+.packages .box-container .box .image {
+height: 25rem;
+width: 100%;
+padding: 1.5rem;
+position: relative;
+}
+
+.packages .box-container .box .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+
+.packages .box-container .box .image h3{
+    position: absolute;
+    top: 2.5rem; left: 2.5rem;
+    font-size: 2rem;
+    color: #fff;
+    background: rgba(0,0,0,.5);
+    border-radius: 1rem;
+    font-weight: lighter;
+    padding: 1rem 1.5rem;
+}
+
+
+.packages .box-container .box .image h3 i{
+    color   : rgba(200, 167, 4, 0.815);
+}
+
+
+.packages .box-container .box .content{
+    padding: 1.5rem;
+    padding-top: 0;
+
+}
+
+.packages .box-container .box .content .price{
+    font-weight: 600;
+    color: var(--text-color-1);
+    font-size: 2.5rem;
+
+}
+
+
+.packages .box-container .box .content .price Span{
+        font-weight: lighter;
+    color: var(--text-color-2);
+    font-size: 1.5rem;
+    text-decoration:line-through ;
+}
+
+
+.packages .box-container .box .content p{
+    font-size: 1.5rem;
+    color: var(--text-color-2);
+    line-height: 1.7;
+    padding: 1rem 0;
+}
+
+
+
+.services .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 2fr));
+    gap: 1.5rem;
+}
+
+
+.services .box-container .box{
+    background: var(--bg-color-1);
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    padding: 1rem;
+   
+}
+
+
+.services .box-container .box span{
+    position: absolute;
+    top: 5.5rem; right: 2rem; left: 20rem;
+    color: var(--text-color-2);
+    font-weight: bolder;
+    font-size: 4rem;
+    
+}
+
+.services .box-container .box i{
+    height: 6rem;
+    width: 6rem;
+    line-height: 6rem;
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    background: var(--blue);
+    border-radius: 50%;
+    margin-bottom: 3rem;
+}
+
+.services .box-container .box i:hover{
+     color: rgba(158, 140, 1, 0.957);
+    background-color: rgba(156, 2, 2, 0.635);
+}
+
+.services .box-container .box h3{
+    color: var(--text-color-1);
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.services .box-container .box p{
+    color: var(--text-color-1);
+    font-size: 1.5rem;
+    line-height: 1.7;
+}
+
+
+
+
+
+
+
+.services{
+    width: 100%;
+    padding: 2rem 0;
+}
+
+
+.review .review-slider{
+    box-shadow: var(--box-shadow);
+}
+
+
+.review .review-slider .slide {
+    background: var(--bg-color-1);
+    border-radius: 1rem;
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-color-1);
+}
+
+.slide img{
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+}
+
+
+.review .review-slider .slide .stars {   
+    padding: 1rem 0;
+    padding-bottom: 1.5rem;
+    
+}
+
+
+.review .review-slider .slide .stars i{
+    color: #f0c040;
+    font-size: 2rem;
+}
+
+
+
+.swiper-pagination-bullet-active{
+    background: var(--blue);
+}
+
+
+.form-container form .btn:hover{
+    flex: 1 1 23rem;
+    background: rgb(250, 225, 0);
+    color: rgba(156, 4, 183, 0.644);
+    padding-left: 2rem;
+}
+
+
+
+.contact form{
+    max-width: 80rem; 
+    margin: 0 auto;
+    /* text-align: center; */
+    background: var(--blue);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem;
+    color: var(--text-color-1);
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+
+.contact form textarea,
+.contact form input{
+    width: 49%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: var(--text-color-1);
+    margin: 3rem 0;
+    background: var(--bg-color-1);
+    box-shadow: var(--box-shadow);
+    text-transform: none;
+    border: none;
+    border-radius: 1rem;
+   
+}
+
+.contact form textarea{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: var(--text-color-1);
+    margin: 1rem 0;
+    background: var(--bg-color-1);
+    box-shadow: var(--box-shadow);
+    text-transform: none;
+    border-radius: 1rem;
+    height: 20rem;
+    resize: none;
+}
+
+
+
+
+
+
+.contents{
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    background: var(--bg-color-1);
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem;
+    margin-top: 2rem;
+    color: var(--text-color-1);
+    font-size: 1.5rem;
+    line-height: 1.7;
+}
+
+
+.logo-img{
+    height: 5rem;
+    width: 15rem;
+    border-radius: 25%;
+    object-fit: cover;
+    margin-left: 2rem;
+    text-align: center;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+ @media(max-width:991px) {
+ html{
+    font-size: 55%;
+}
+
+
+.header{
+    padding: 1.5rem 2rem;
+}
+
+section{
+    padding:2rem;
+}
+
+.header .navbar{
+    right: 2rem;
+}
+
+
+
+.header .login-form{
+    right: 2rem;
+}
+
+
+
+
+.header .search-form{
+    right: 2rem;
+}
+}
+
+
+
+@media(max-width:768px) {
+    .header{
+    padding: 1.5rem 2rem;
+}
+
+
+.header .navbar{
+    right: 2rem;
+}
+
+
+
+.header .login-form{
+    right: 2rem;
+}
+
+
+
+
+.header .search-form{
+    position: absolute;
+     top: 115%;right: 2rem;
+     background: var(--bg-color-1);
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    width: 90%;
+    
+}
+
+.search-box {
+        flex-direction: column;
+        border-radius: 16px;
+      }
+
+      .search-button {
+        border-radius: 0 0 16px 16px;
+        width: 100%;
+      }
+
+
+ 
+} /* <-- Close the @media(max-width:768px) block here */
+
+@media(max-width:450px) {
+ html{
+    font-size: 55%;
+}
+
+
+.header{
+    padding: 1.5rem 2rem;
+}
+
+
+ }
